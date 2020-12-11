@@ -15,8 +15,8 @@ class Footer extends Component {
             <div className="footer" style={footerStyle}>
                 <p>本页面使用ReactJS制作以作演示。</p>
 
-                <Link className="navlink" style={navlink} to='/' >回到首页</Link>
-                <Link className="navlink" style={navlink} to={'/show'}>地址选择展示</Link>
+                <Link className="navlink" style={navlink} to='/resume' >回到首页</Link>
+                <Link className="navlink" style={navlink} to={'/resume/show'}>地址选择展示</Link>
             </div>
         );
     }
