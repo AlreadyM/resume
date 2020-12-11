@@ -11,8 +11,8 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 // console.log($('body'))
 ReactDOM.render((
   <Router>
-    <Route path="/" exact component={App} />
-    <Route path="/show" component={Show} />
+    <Route path="/resume" exact component={App} />
+    <Route path="/resume/show" component={Show} />
   </Router>
 ),document.getElementById('root')
 );
