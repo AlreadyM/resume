@@ -1,0 +1,26 @@
+.city-select{
+    color:#000;
+    list-style: none;
+    padding: 40px 10px;
+    background-color: #fff !important;
+    user-select: none;
+}
+body{
+}
+.city-select .flex-item{
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #c5c5c5;
+}
+.city-select ul{
+    height: 500px;
+    overflow: auto;
+}
+.city-select li{
+    list-style: none;
+    border: 1px solid #cccccc;
+    margin: 10px;
+    padding: 10px;
+    text-indent: 20px;
+    background-color: #f6f6f6;
+}

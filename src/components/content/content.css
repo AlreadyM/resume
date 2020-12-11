@@ -1,0 +1,17 @@
+.content{
+    font-size: 18px;
+    text-align: justify;
+    color: #acc2da;
+}
+.flex{
+    display: flex;
+}
+.flex-item{
+    flex: 1;
+}
+.module-content{
+    padding-bottom: 40px;
+}
+.module-body{
+    padding-left: 20px;
+}
