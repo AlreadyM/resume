@@ -1,45 +1,52 @@
 import React, { Component } from "react";
-import {Link} from 'react-router-dom';
-
+import axios from 'axios';
+import $ from 'jquery';
 import Footer from './../../footer';
 import "./index.css";
 class Show extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      options: [
-        "天津",
-        "沈阳",
-        "大连",
-        "哈尔滨",
-        "济南",
-        "青岛",
-        "南京",
-        "上海",
-        "杭州",
-        "武汉",
-        "广州",
-        "深圳",
-        "香港",
-        "澳门",
-        "重庆",
-        "成都",
-        "西安",
+      cities1: ["天津","沈阳","大连","哈尔滨","济南","青岛","南京","上海","杭州","武汉","广州","深圳","香港","澳门","重庆","成都","西安",
       ],
-        selected_city: ["北京",],
+      loading:true,
+      cities:['数据加载中'],
+      selected_city: ["北京",],
     };
     this.selectCity = this.selectCity.bind(this);
     this.deSelectCity = this.deSelectCity.bind(this);
+    this.get = this.get.bind(this)
+  }
+  get (){
+    axios.get('./city.json').then((res)=>{
+      console.log(res.data); //resume/public/city.json
+      console.log(res.status);
+      this.setState({
+        cities:res.data
+      })
+    }).catch((err)=>{
+      console.log(err);
+    })
+
+    // $.get('./city.json',function (data) {
+    //   console.log(data);
+    // }).fail((err)=>{
+    //   console.log(err);
+    // })
+
+  }
+  componentDidMount(){
+    this.get()
   }
   selectCity(e) {
     e.preventDefault();
     let ind = e.target.getAttribute("index");
-    let options = [...this.state.options];
-    let clicked_city = options[ind];
-    options.splice(ind, 1);
+    let cities = [...this.state.cities];
+    let clicked_city = cities[ind];
+    cities.splice(ind, 1);
     this.setState({
       selected_city: [...this.state.selected_city, clicked_city],
-      options: options,
+      cities: cities,
     });
   }
   deSelectCity(e) {
@@ -50,7 +57,7 @@ class Show extends Component {
     selected_city.splice(ind, 1);
     this.setState({
       selected_city: selected_city,
-      options: [...this.state.options, clicked_city],
+      cities: [...this.state.cities, clicked_city],
     });
   }
   render() {
@@ -60,8 +67,9 @@ class Show extends Component {
           <div className="flex-item">
             <h3> 可选城市 </h3>
             <ul>
-              
-              {this.state.options.map((item, index) => {
+          
+              {this.state.cities.map((item, index) => {
+                
                 return (
                   <li key={index} index={index} onClick={this.selectCity}>
                     
