@@ -13,7 +13,7 @@ class Footer extends Component {
         }
         return (
             <div className="footer" style={footerStyle}>
-                <p>本页面使用ReactJS制作以作演示。</p>
+                <p>本页面使用ReactJS制作以作演示。主要展示内容：路由，事件绑定，state触发重绘与基本网页制作。</p>
 
                 <Link className="navlink" style={navlink} to='/resume' >回到首页</Link>
                 <Link className="navlink" style={navlink} to={'/resume/show'}>地址选择展示</Link>

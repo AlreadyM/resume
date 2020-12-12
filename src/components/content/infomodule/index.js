@@ -10,7 +10,7 @@ class InfoModule extends Component {
     }
     render() {
         let style={
-            paddingBottom:'16px'
+            paddingBottom:'10px'
         }
         return (
                 <div className="modlue-title" style={style}>{this.props.title?this.props.title:this.state.title}</div>
