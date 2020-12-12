@@ -1,0 +1,4 @@
+    {
+        "problem":"绑定方法this指向问题",
+        "resolve":"如需继续绑定为当前组件而不是当前方法内的this，可在constructor中明确bind(this)，如this.f = this.f.bind(this)"
+    }

@@ -1,0 +1,16 @@
+.collection{
+    background-color: #fff;
+    padding: 20px;
+}
+.collection ol{
+    padding-left: 20px;
+}
+.collection ol li{
+    margin-bottom: 20px;
+}
+.collection .problem{
+    font-size: 16px;
+}
+.collection .resolve{
+
+}

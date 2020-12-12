@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 import axios from 'axios';
-import $ from 'jquery';
 import Footer from './../../footer';
 import "./index.css";
 class Show extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cities1: ["天津","沈阳","大连","哈尔滨","济南","青岛","南京","上海","杭州","武汉","广州","深圳","香港","澳门","重庆","成都","西安",
-      ],
       loading:true,
       cities:['数据加载中'],
       selected_city: ["北京",],
@@ -17,13 +14,9 @@ class Show extends Component {
     this.deSelectCity = this.deSelectCity.bind(this);
     this.get = this.get.bind(this)
   }
-  get (){
-    axios.get('./city.json').then((res)=>{
-      console.log(res.data); //resume/public/city.json
-      console.log(res.status);
-      this.setState({
-        cities:res.data
-      })
+  get (url,callback){
+    axios.get(url).then((res)=>{
+      if (typeof(callback)==='function') callback(res)
     }).catch((err)=>{
       console.log(err);
     })
@@ -36,7 +29,13 @@ class Show extends Component {
 
   }
   componentDidMount(){
-    this.get()
+    this.get('./city.json',(res)=>{
+      // console.log(res.data); //resume/public/city.json
+      // console.log(res.status);
+      this.setState({
+        cities:res.data
+      })
+    })
   }
   selectCity(e) {
     e.preventDefault();

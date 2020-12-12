@@ -17,6 +17,7 @@ class Footer extends Component {
 
                 <Link className="navlink" style={navlink} to='/resume' >回到首页</Link>
                 <Link className="navlink" style={navlink} to={'/resume/show'}>地址选择展示</Link>
+                <Link className="navlink" style={navlink} to={'/resume/collection'}>常见问题整理</Link>
             </div>
         );
     }
