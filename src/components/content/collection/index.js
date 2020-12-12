@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import GitPagePublish from './../gitpagepublish';
 import Footer from './../../footer';
 
 import './index.css';
@@ -43,6 +44,7 @@ class Collection extends Component {
                         )
                     })}
                 </ol>
+                <GitPagePublish/>
                 <Footer/>
             </div>
         );
