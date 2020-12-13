@@ -24,10 +24,11 @@ class Collection extends Component {
                     resolve:'fetch(ios 10.xx with bugs),axios(优选),ajax(tool.js),ajax($)'
                 },{
                     name:'jsx区别常规html写法特列',
-                    resolve:'class-->className, label for -->htmlfor，本地图片引入 -->先作为对象引入后再在src中大括号赋值或直接src=require("xxx")'
+                    resolve:'class-->className, label for -->htmlfor，本地图片引入 -->先作为对象import后再在src中大括号赋值或直接src=require("xxx")、优选对象引入方式便于webpack判定base64直接压如代码减少http请求优化网络传输'
                 },{
-                    name:'jsx区别常规html写法特列',
-                    resolve:'class-->className, label for -->htmlfor'
+                    name:'react-router-dom',
+                    resolve:['<browerrouter> 需要服务端更改配置避免404，标准url方便前后端对接路由路径 ',
+                            '<hashrouter> 无需服务端特殊配置即可访问，但url带有#号，美观问题以及路径对于后端全为同一地址，不便于具体业务界面渲染。']
                 },
             ]
         }

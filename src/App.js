@@ -10,6 +10,10 @@ class App extends Component {
   componentDidMount(){
     render_canvas()
   }
+  componentWillUnmount(){
+    render_canvas(false)
+    console.log('页面切换，首页组件即将卸载');
+  }
   render(){
     return (
       <div className="App container">
@@ -21,7 +25,8 @@ class App extends Component {
       );
     }
 }
-function render_canvas() {
+function render_canvas(render_tag) {
+  
   var canvas = document.querySelector('canvas'),
   ctx = canvas.getContext('2d')
   canvas.width = window.innerWidth;
@@ -155,6 +160,37 @@ function render_canvas() {
       mousePosition.x = e.pageX;
       mousePosition.y = e.pageY;
   });
+  var   widthLarger = false
+      ,heightLarger= false
+  function randomXY() {
+    var width = canvas.width
+      ,height = canvas.height
+      ,step = 2
+
+      if (mousePosition.x > width - 100){
+        widthLarger = true
+      }else if(mousePosition.x< 20){
+        widthLarger = false
+      }
+      if (mousePosition.y > height - 100){
+        heightLarger = true
+      }else if(mousePosition.y< 20){
+        heightLarger = false
+      }
+      mousePosition={
+        x: widthLarger  ? mousePosition.x - step : mousePosition.x + step,
+        y: heightLarger ? mousePosition.y - step : mousePosition.y + step
+      }
+  }
+
+  var randomDots = setInterval(() => {
+    randomXY()
+  }, 50);
+
+  if(render_tag === false){
+    clearInterval(randomDots)
+  }
+
   starry_sky.addEventListener('mouseleave', e => {
       mousePosition.x = canvas.width / 2;
       mousePosition.y = canvas.height / 2;

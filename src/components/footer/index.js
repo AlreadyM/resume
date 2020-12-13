@@ -9,15 +9,16 @@ class Footer extends Component {
             paddingBottom:50
         }
         const navlink = {
-            margin:'0px 10px'
+            margin:'0px 10px',
+            fontSize:'1rem'
         }
+        const basename = ''
         return (
             <div className="footer" style={footerStyle}>
                 <p>本页面使用ReactJS制作以作演示。主要展示内容：路由，组件复用，事件绑定，state触发重绘与基本网页制作。</p>
-
-                <Link className="navlink" style={navlink} to='/resume' >回到首页</Link>
-                <Link className="navlink" style={navlink} to={'/resume/show'}>地址选择展示</Link>
-                <Link className="navlink" style={navlink} to={'/resume/collection'}>常见问题整理</Link>
+                <Link className="navlink" style={navlink} to='/' >回到首页</Link>
+                <Link className="navlink" style={navlink} to={'/show'}>地址选择展示</Link>
+                <Link className="navlink" style={navlink} to={'/collection'}>常见问题整理</Link>
             </div>
         );
     }

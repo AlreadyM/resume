@@ -14,6 +14,7 @@ class Show extends Component {
     this.deSelectCity = this.deSelectCity.bind(this);
     this.get = this.get.bind(this)
   }
+
   get (url,callback){
     axios.get(url).then((res)=>{
       if (typeof(callback)==='function') callback(res)
@@ -35,6 +36,8 @@ class Show extends Component {
       this.setState({
         cities:res.data
       })
+    console.log('数据获取完成，城市选择示例组件挂载到页面');
+
     })
   }
   selectCity(e) {

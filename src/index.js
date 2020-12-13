@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter as Router, Route,link} from 'react-router-dom';
+import {HashRouter as Router, Route,link} from 'react-router-dom';
 
 import App from './App';
 import Show from './components/content/show';
@@ -11,9 +11,9 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 // console.log($('body'))
 ReactDOM.render((
   <Router>
-    <Route path="/resume" exact component={App} />
-    <Route path="/resume/show" component={Show} />
-    <Route path="/resume/collection" component={Collection} />
+    <Route path="/" basename="/" exact component={App} />
+    <Route path="/show" component={Show} />
+    <Route path="/collection" component={Collection} />
   </Router>
 ),document.getElementById('root')
 );
