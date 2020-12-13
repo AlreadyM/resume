@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import './App.css'
-
+import isMobile from 'ismobilejs'
 // components
 import Head from './components/head'
 import Content from './components/content'
@@ -38,10 +38,9 @@ function render_canvas(render_tag) {
     x: 30 * canvas.width / 100,
     y: 30 * canvas.height / 100
   };
-
   var dots = {
-    nb: 750,
-    distance: 50,
+    nb: isMobile(navigator).phone ? 140 : 800,
+    distance: 70,
     d_radius: 100,
     array: []
   };
