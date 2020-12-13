@@ -32,7 +32,7 @@ class BaseInfo extends Component {
         <InfoModule title="基本信息" />
         <div className="baseinfo-content module-body">
           <div className="flex">
-            <div className="flex">
+            <div className="">
                 <div className='baseimfo-text'>{this.state.name}</div>
                 <div className='baseimfo-text'>{this.state.sex==='man'?'男':'女'}</div>
                 <div className='baseimfo-text'>{this.state.education_background}</div>

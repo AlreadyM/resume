@@ -24,6 +24,9 @@ class Collection extends Component {
                     resolve:'fetch(ios 10.xx with bugs),axios(优选),ajax(tool.js),ajax($)'
                 },{
                     name:'jsx区别常规html写法特列',
+                    resolve:'class-->className, label for -->htmlfor，本地图片引入 -->先作为对象引入后再在src中大括号赋值或直接src=require("xxx")'
+                },{
+                    name:'jsx区别常规html写法特列',
                     resolve:'class-->className, label for -->htmlfor'
                 },
             ]

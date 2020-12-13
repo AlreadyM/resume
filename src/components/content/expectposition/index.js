@@ -18,7 +18,7 @@ class ExpectPosition extends Component {
       <div className="expect-position module-content">
         <InfoModule title="期望职位" />
         <div className="flex module-body">
-          <div className="flex">
+          <div className=" ">
             <div className="baseimfo-text">{data.job_name}</div>
             <div className="baseimfo-text">薪资：{data.desire_money_low} - {data.desire_money_high} k</div>
             <div className="baseimfo-text">行业{data.industry}</div>
