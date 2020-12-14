@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Footer from '../../footer';
 
 import edit from './../../../assets/edit.svg'
 import './index.css'
@@ -138,6 +139,7 @@ class ListTree extends Component {
                 <div className="listtree ">
                 { this.renderChild(this.state.listTree)}
                 </div>
+                <Footer/>
             </div>
         );
     }
