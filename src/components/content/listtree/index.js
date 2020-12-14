@@ -137,9 +137,11 @@ class ListTree extends Component {
         return (
             <div className="container">
                 <div className="listtree ">
-                { this.renderChild(this.state.listTree)}
+                    <div className="listtree-content">
+                        { this.renderChild(this.state.listTree)}
+                    </div>
+                    <Footer/>
                 </div>
-                <Footer/>
             </div>
         );
     }
