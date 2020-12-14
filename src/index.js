@@ -5,6 +5,7 @@ import {HashRouter as Router, Route,link} from 'react-router-dom';
 import App from './App';
 import Show from './components/content/show';
 import Collection from './components/content/collection';
+import ListTree from './components/content/listtree'
 import reportWebVitals from './reportWebVitals';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
@@ -13,6 +14,7 @@ ReactDOM.render((
   <Router>
     <Route path="/" basename="/" exact component={App} />
     <Route path="/show" component={Show} />
+    <Route path="/listtree" component={ListTree} />
     <Route path="/collection" component={Collection} />
   </Router>
 ),document.getElementById('root')

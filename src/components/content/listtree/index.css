@@ -1,0 +1,44 @@
+.container{
+    background-color: #fff;
+
+}
+.listtree{
+    padding: 10px;
+    width: 200px;
+    user-select: none;
+}
+.tree{
+    padding-left:20px;
+    position: relative;
+    font-size: 18px;
+    line-height: 32px;
+
+}
+.arrow::before{
+    content:'';
+    display: block;
+    position: absolute;
+    left: 0;top: 10px;
+    width: 0;height: 0;
+    border-top: 8px solid #000;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+}
+.flex{
+    display: flex;
+}
+.flex-item{
+    /* flex: 1; */
+}
+.edit{
+    width: 18px;
+    display: none;
+    position: relative;
+    top: 5px;
+}
+.flex:hover .edit{
+    display: block;
+}
+.title input{
+    display: none;
+}

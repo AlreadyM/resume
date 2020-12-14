@@ -18,6 +18,7 @@ class Footer extends Component {
                 <p>本页面使用ReactJS制作以作演示。主要展示内容：路由，组件复用，事件绑定，state触发重绘与基本网页制作。</p>
                 <Link className="navlink" style={navlink} to='/' >回到首页</Link>
                 <Link className="navlink" style={navlink} to={'/show'}>地址选择展示</Link>
+                <Link className="navlink" style={navlink} to={'/listtree'}>树状导航</Link>
                 <Link className="navlink" style={navlink} to={'/collection'}>常见问题整理</Link>
             </div>
         );
