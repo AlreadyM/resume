@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import InfoModule from "../infomodule";
 import './index.css'
-
 class BaseInfo extends Component {
   constructor(props) {
     super(props);

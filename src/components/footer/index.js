@@ -19,6 +19,7 @@ class Footer extends Component {
                 <Link className="navlink" style={navlink} to='/' >回到首页</Link>
                 <Link className="navlink" style={navlink} to={'/show'}>地址选择展示</Link>
                 <Link className="navlink" style={navlink} to={'/listtree'}>树状导航</Link>
+                <Link className="navlink" style={navlink} to={'/anttree'}>React Ant editabl 树状导航</Link>
                 <Link className="navlink" style={navlink} to={'/collection'}>常见问题整理</Link>
             </div>
         );
