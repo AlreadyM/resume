@@ -51,9 +51,7 @@ class ListTree extends Component {
                   key: '0-2',
                 },
               ]
-              ,editing:false
         }
-
         this.editing = this.editing.bind(this)
         this.changeTitle = this.changeTitle.bind(this)
         this.renderChild = this.renderChild.bind(this)
@@ -61,18 +59,18 @@ class ListTree extends Component {
     }
     editing(e){
         e.preventDefault();
-        if(e.target.tagName === 'INPUT'){
-            return
+        let target = e.target
+        if(target.tagName === 'IMG'){
+            target = target.parentNode.parentNode
+        }else{
+            target = target.parentNode.parentNode.parentNode
         }
-        if(this.state.editing){
-            this.setState({
-                editing:false
-            })
-            return 
+        if(e.target.tagName === 'INPUT') return
+        if(target.getAttribute('class') === 'flex'){
+            target.setAttribute('class','flex editing')
+        }else{
+            target.setAttribute('class','flex')
         }
-        this.setState({
-            editing:true
-        })
     }
     changeTitle(e){
         e.preventDefault();
@@ -80,8 +78,11 @@ class ListTree extends Component {
         let target = e.target
             ,value = target.value
             ,ind = target.getAttribute('ind')
-        let list = [...this.state.listTree]
+            ,list = [...this.state.listTree]
+            ,parentNode = target.parentNode.parentNode.parentNode
+        ;
         target.setAttribute('ind',value)
+        parentNode.setAttribute('ind',value)
         this.mapData(list,ind,value)
         this.setState({
             listTree:list
@@ -89,9 +90,7 @@ class ListTree extends Component {
     }
     key_enter(e){
         if(e.keyCode === 13){
-            this.setState({
-                editing:false
-            })
+            document.querySelectorAll('.editing')[0].setAttribute('class','flex')
         }
     }
     mapData(data,goal,result){
@@ -100,7 +99,7 @@ class ListTree extends Component {
                 if(item.title === goal){
                     item.title = result
                 }else{
-                    this.mapData(item.children,goal,result)
+                    this.mapData(item.children,goal,result) // 深层遍历数据匹配当前对象值
                 }
                 return '';
             })
@@ -109,23 +108,22 @@ class ListTree extends Component {
     renderChild (data){
         let context = ''
             ,arrow = 'arrow'
-        const inputstyle ={
-            display:this.state.editing ? 'block' : 'none'
-        }
         if(data !== undefined){
                 context = data.map((item,key)=>{
                     if(item.children === undefined) {arrow = ''}
                     return (
-                        <div className={"tree " + arrow }key={item.key}>
-                            <div className={"flex"}>
-                                <div className="flex-item" onClick={this.editing} >
-                                    <div className="title">{item.title}<input type="text" defaultValue={item.title} onChange={this.changeTitle} ind={item.key} style={inputstyle} onKeyDown={this.key_enter}/></div>
+                        <div className={"tree " + arrow } key={item.key}>
+                            <div className="flex" ind={item.key}>
+                                <div className="flex-item"  >
+                                    <div className="title">
+                                        <div className="title-text" > {item.title} </div>
+                                        <input type="text" defaultValue={item.title} onChange={this.changeTitle} ind={item.key}  onKeyDown={this.key_enter}/></div>
                                 </div>
                                 <div>
                                     <img src={edit} alt="" className="edit" onClick={this.editing}/>
                                 </div>
                             </div>
-                            {this.renderChild(item.children)}
+                            {this.renderChild(item.children)} {/* 深层遍历自循环*/ }
                         </div>
                     )
                 })
@@ -136,7 +134,8 @@ class ListTree extends Component {
     render() {
         return (
             <div className="container">
-                <div className="listtree ">
+            <h5 style={{textAlign:"center",padding:"20px 0",backgroundColor:"#fff"}}>无框架自建</h5>
+                <div className="listtree-module ">
                     <div className="listtree-content">
                         { this.renderChild(this.state.listTree)}
                     </div>

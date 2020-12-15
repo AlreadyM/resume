@@ -6,6 +6,7 @@ import App from './App';
 import Show from './components/content/show';
 import Collection from './components/content/collection';
 import ListTree from './components/content/listtree'
+import AntdTreeALi from './components/content/listtree/antdtree.js'
 import AntTree from './components/content/anttree'
 import reportWebVitals from './reportWebVitals';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -15,7 +16,8 @@ ReactDOM.render((
   <Router>
     <Route path="/" basename="/" exact component={App} />
     <Route path="/show" component={Show} />
-    <Route path="/listtree" component={ListTree} />
+    <Route path="/AntdTree-ali" component={AntdTreeALi} />
+    {<Route path="/listtree" component={ListTree} /> }
     <Route path="/anttree" component={AntTree} />
     <Route path="/collection" component={Collection} />
   </Router>
