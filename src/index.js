@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {HashRouter as Router, Route,link} from 'react-router-dom';
+import {HashRouter as Router, Route} from 'react-router-dom';
 
 import App from './App';
 import Show from './components/content/show';
@@ -17,8 +17,8 @@ ReactDOM.render((
     <Route path="/" basename="/" exact component={App} />
     <Route path="/show" component={Show} />
     <Route path="/AntdTree-ali" component={AntdTreeALi} />
-    {<Route path="/listtree" component={ListTree} /> }
-    <Route path="/anttree" component={AntTree} />
+    <Route path="/listtree" component={ListTree} /> 
+    <Route path="/anttree-meituan" component={AntTree} />
     <Route path="/collection" component={Collection} />
   </Router>
 ),document.getElementById('root')
