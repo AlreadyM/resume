@@ -22,6 +22,7 @@ class Footer extends Component {
                 <Link className="navlink" style={navlink} to={'/AntdTree-ali'}>ALi/树状导航antd tree</Link>
                 <Link className="navlink" style={navlink} to={'/anttree-meituan'}>MT/React Ant editabl 树状导航</Link>
                 <Link className="navlink" style={navlink} to={'/collection'}>常见问题整理</Link>
+                <a href="https://alreadym.github.io/resumewithvue" rel="noopener noreferrer">浏览Vue 用例</a>
             </div>
         );
     }
