@@ -6,6 +6,7 @@ import Head from './components/head'
 import Content from './components/content'
 import Footer from './components/footer'
 
+
 class App extends Component {
   componentDidMount(){
     render_canvas()

@@ -15,7 +15,7 @@ class Footer extends Component {
         const basename = ''
         return (
             <div className="footer" style={footerStyle}>
-                <p>本页面使用ReactJS制作以作演示。主要展示内容：路由，组件复用，数据获取与渲染，事件绑定，state触发重绘与基本网页制作。</p>
+                <p>本页面使用ReactJS制作以作演示。主要展示内容：路由，组件复用，数据获取与渲染，事件绑定，redux,state触发重绘与基本网页制作。</p>
                 <Link className="navlink" style={navlink} to='/' >回到首页</Link>
                 <Link className="navlink" style={navlink} to={'/show'}>地址选择</Link>
                 <Link className="navlink" style={navlink} to={'/listtree'}>ALi/树状导航 react</Link>

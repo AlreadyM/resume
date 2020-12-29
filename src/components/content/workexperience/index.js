@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import InfoModule from '../infomodule';
+import Store from '../../../store';
 class WorkExperience extends Component {
+   
     render() {
         return (
             <div className='work-experience module-content'>

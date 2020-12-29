@@ -1,30 +1,36 @@
 import React, { Component } from "react";
 import InfoModule from "../infomodule";
 import './index.css'
+import Store from "../../../store";
 class BaseInfo extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      name: "雷春华",
-      birthday: "1990-01-06",
-      sex: "man",
-      education_background: "大专",
-      education_endtime: "20120701",
-      work_start_date: '2012-08-18',
-      current_status: "离职-随时到岗",
-      contact_number: "17896057893",
-      email: "617054896@qq.com",
-    };
+    this.state = Store.getState();
+    this.storeChange = this.storeChange.bind(this)
+    Store.subscribe(this.storeChange)
   }
+
+    componentDidMount(){
+        const action = {
+            type:'contact_number',
+            value:`13521760106`
+        }
+        setTimeout(()=>{
+          Store.dispatch(action)
+          console.log('use reduce change the state on component mounted')
+        },5000)
+    }
+    storeChange(){
+        this.setState(Store.getState())
+      }
     timegap () {
         let now = new Date();
         let start = new Date(this.state.work_start_date);
         let month = 11 - (start.getMonth()) + (now.getMonth());
         return now.getFullYear() - start.getFullYear() + (month > 11 ? 1 : 0);
     }
-    componentDidMount(){
-        // console.log(this.timegap());
-    }
+
+   
   render() {
     return (
       <div className="base-info module-content">
